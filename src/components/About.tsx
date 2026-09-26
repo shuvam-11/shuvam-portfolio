@@ -12,11 +12,12 @@ import {
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import CardTilt3D from './CardTilt3D';
+import shuvamProfilePic from '../profilepic/shuvam.png';
 
 export default function About() {
   const [photoError, setPhotoError] = useState(false);
   const storedPhoto = typeof window !== 'undefined' ? localStorage.getItem('shuvam_profile_photo') : null;
-  const currentPhotoSrc = storedPhoto || '/shuvam-profile.png';
+  const currentPhotoSrc = (storedPhoto && storedPhoto !== '/shuvam-profile.png') ? storedPhoto : shuvamProfilePic;
 
   const capabilities = [
     {

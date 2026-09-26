@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
+import shuvamProfilePic from '../profilepic/shuvam.png';
 
 interface ProfilePhotoContextType {
   photoSrc: string;
@@ -9,7 +10,7 @@ interface ProfilePhotoContextType {
 }
 
 const STORAGE_KEY = 'shuvam_profile_photo';
-const DEFAULT_PATH = '/shuvam-profile.png';
+const DEFAULT_PATH = shuvamProfilePic;
 const ALT_TEXT = 'SHUVAM JENA - Data Analytics and AI & Full-Stack Developer';
 
 const ProfilePhotoContext = createContext<ProfilePhotoContextType>({
@@ -23,7 +24,8 @@ const ProfilePhotoContext = createContext<ProfilePhotoContextType>({
 export const ProfilePhotoProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [photoSrc, setPhotoSrc] = useState<string>(() => {
     try {
-      return localStorage.getItem(STORAGE_KEY) || DEFAULT_PATH;
+      const stored = localStorage.getItem(STORAGE_KEY);
+      return (stored && stored !== '/shuvam-profile.png') ? stored : DEFAULT_PATH;
     } catch {
       return DEFAULT_PATH;
     }

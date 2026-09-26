@@ -89,7 +89,7 @@ export default function ProfilePhotoFrame({ variant = 'hero', className = '' }: 
 
               <p className="text-xs text-slate-400 leading-relaxed">
                 Click below to select your <code className="text-cyan-300">shuvam.png</code> or place it at{' '}
-                <code className="text-cyan-300">/public/shuvam-profile.png</code>.
+                <code className="text-cyan-300">src/profilepic/shuvam.png</code>.
               </p>
 
               <button

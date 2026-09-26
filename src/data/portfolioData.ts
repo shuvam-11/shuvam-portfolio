@@ -7,6 +7,7 @@ import {
   CertificationItem,
   EducationItem,
 } from '../types/portfolio';
+import shuvamProfilePic from '../profilepic/shuvam.png';
 
 export const PERSONAL_INFO = {
   fullName: 'SHUVAM JENA',
@@ -28,7 +29,7 @@ export const PERSONAL_INFO = {
   location: 'Odisha, India',
   resumeFileName: 'SHUVAM_JENA_Resume.pdf',
   resumePath: '/resume.pdf',
-  portraitPath: '/shuvam-profile.png',
+  portraitPath: shuvamProfilePic,
   heroDescription:
     'I’m a B.Tech Computer Science student at DRIEMS University specializing in Data Analytics, artificial intelligence, and full-stack development, transforming complex datasets into actionable insights and real-world technology.',
   aboutIntroduction:

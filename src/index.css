@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  :root {
+    --bg-primary: #050a14;
+    --bg-secondary: #0b132b;
+    --bg-card: rgba(11, 19, 43, 0.7);
+    --border-color: rgba(56, 189, 248, 0.12);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-blue: #2563eb;
+    --accent-cyan: #06b6d4;
+  }
+
+  .light {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.85);
+    --border-color: rgba(14, 116, 144, 0.15);
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent-blue: #1d4ed8;
+    --accent-cyan: #0891b2;
+  }
+
+  html {
+    font-family: var(--font-sans);
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050a14;
+  }
+  .light ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+  .light ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+  }
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  background: rgba(11, 19, 43, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+}
+
+.light .glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(14, 116, 144, 0.15);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.15);
+}
+
+.light .glass-panel-hover:hover {
+  border-color: rgba(14, 116, 144, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(2, 132, 199, 0.12);
+}
+
+/* Subtle tech data grid pattern */
+.bg-tech-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+}
+
+.light .bg-tech-grid {
+  background-image: 
+    linear-gradient(to right, rgba(14, 116, 144, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 116, 144, 0.05) 1px, transparent 1px);
+}
+
+/* Data pulse glowing effects */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.05); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 6s ease-in-out infinite;
+}
+
+/* Subtle 3D floating animation */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(0.5deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+/* 3D Depth Card Utilities */
+.depth-card {
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .depth-card:hover {
+    box-shadow: 
+      0 20px 40px -15px rgba(0, 0, 0, 0.7),
+      0 0 25px -5px rgba(6, 182, 212, 0.15);
+  }
+}
+
+/* Tabular figures for data integrity */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
